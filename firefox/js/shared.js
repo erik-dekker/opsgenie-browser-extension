@@ -16,8 +16,8 @@ export const defaultSettings = {
     popupHeight: 300
 }
 
-export function opsgenieDomain(customerName) {
+export function opsgenieDomain(customerName, region) {
     const domainSuffix = customerName !== '' ? '.' : ''
-
-    return `https://${customerName}${domainSuffix}app.opsgenie.com`
+    const appDomain = OPSGENIE_DOMAIN[region]
+    return `https://${customerName}${domainSuffix}app.${appDomain}`
 }
